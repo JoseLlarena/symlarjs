@@ -46,7 +46,7 @@
     "mocha": "^3.5.0",
     "mocha-clean": "^1.0.0",
     "mocha-testcheck": "^1.0.0-rc.0",
-    "talisman": "^0.19.1",
+    "talisman": "^0.20.0",
     "testcheck": "^1.0.0-rc.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",

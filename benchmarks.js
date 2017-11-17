@@ -4,6 +4,7 @@ const { gen, sample, sampleOne } = require('testcheck'),
     Benchmark = require('benchmark'),
     leven = require('leven'),
     talisman = require('talisman/metrics/distance/levenshtein'),
+    vtalisman = talisman.limited,
     fast_levenshtein = require('fast-levenshtein').get,
     levenshtein_edit_distance = require('levenshtein-edit-distance'),
     js_levenshtein = require('js-levenshtein');
@@ -28,6 +29,7 @@ new Benchmark.Suite('',
     .add('symlar/veddist           ', harness((L, R, max_d) => veddist(L, R, LEVENSHTEIN, max_d)))
     .add('leven                    ', harness((L, R, max_d) => leven(L, R) <= max_d))
     .add('talisman                 ', harness((L, R, max_d) => talisman(L, R) <= max_d))
+    .add('vtalisman                ', harness((L, R, max_d) => vtalisman(max_d, L, R) <= max_d))
     .add('fast-levenshtein         ', harness((L, R, max_d) => fast_levenshtein(L, R) <= max_d))
     .add('js-levenshtein           ', harness((L, R, max_d) => js_levenshtein(L, R) <= max_d))
     .add('levenshtein-edit-distance', harness((L, R, max_d) => levenshtein_edit_distance(L, R) <= max_d))
